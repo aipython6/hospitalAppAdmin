@@ -6,6 +6,7 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    HomePageBanner: typeof import('./src/components/HomePage/Banner.vue')['default']
     HomePageButtonBox: typeof import('./src/components/HomePage/ButtonBox.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

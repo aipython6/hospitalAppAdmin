@@ -51,6 +51,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@headlessui/vue": "^1.6.7",
+    "@heroicons/vue": "^1.0.6",
     "@iconify-json/mdi": "^1.1.24",
     "@iconify/vue": "^3.2.1",
     "@intlify/vite-plugin-vue-i18n": "^3.4.0",

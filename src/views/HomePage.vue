@@ -14,10 +14,28 @@ const boxConfig = reactive<Array>(data);
 </script>
 
 <template>
-  <div class="bg-no-repeat xs:bg-contain sm:bg-contain md:bg-cover bg-homepage-bg1">
-    <div class="max-w-md">
-      <img src="../../src/assets/img/logo.png" class="cursor-pointer" @click="goHome" />
+  <!-- <HomePageBanner /> -->
+  <div>
+      <div class="bg-cover bg-no-repeat sm:h-screen bg-homepage-bg1">
+        <div class="flex items-center justify-center">
+          <div class="hidden sm:block">
+            <img src="../../src/assets/img/logo.png" class="cursor-pointer" @click="goHome" />
+            <div class="flex justify-start space-x-9 p-5">
+              <HomePageButtonBox
+              :text="item.text"
+              :icon="item.icon"
+              v-for="(item, index) of boxConfig"
+              :key="item.id"
+            />
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="sm:hidden">
       <div>
+        <img src="../../src/assets/img/logo.png" class="cursor-pointer" @click="goHome" />
+      </div>
+      <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-3">
         <HomePageButtonBox
           :text="item.text"
           :icon="item.icon"
