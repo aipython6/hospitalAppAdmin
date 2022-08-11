@@ -16,19 +16,22 @@ const boxConfig = reactive<Array>(data);
 <template>
   <!-- <HomePageBanner /> -->
   <div>
-      <div class="bg-cover bg-no-repeat sm:h-screen bg-homepage-bg1">
-        <div class="flex items-center justify-center">
-          <div class="hidden sm:block">
-            <img src="../../src/assets/img/logo.png" class="cursor-pointer" @click="goHome" />
-            <div class="flex justify-start space-x-9 p-5">
-              <HomePageButtonBox
+    <div class="bg-no-repeat bg-cover sm:h-screen bg-homepage-bg1">
+      <div class="flex items-center justify-center">
+        <div class="hidden sm:block">
+          <img src="../../src/assets/img/logo.png" class="cursor-pointer" @click="goHome" />
+          <div class="flex justify-start space-x-9 p-7">
+            <HomePageButtonBox
               :text="item.text"
               :icon="item.icon"
               v-for="(item, index) of boxConfig"
               :key="item.id"
             />
-            </div>
           </div>
+          <div>
+            <HomePageHoverBox />
+          </div>
+        </div>
       </div>
     </div>
     <div class="sm:hidden">
@@ -42,6 +45,9 @@ const boxConfig = reactive<Array>(data);
           v-for="(item, index) of boxConfig"
           :key="item.id"
         />
+      </div>
+      <div>
+        <HomePageHoverBox />
       </div>
     </div>
   </div>

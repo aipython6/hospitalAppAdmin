@@ -25,6 +25,7 @@ module.exports = {
         'logo': "url('../../src/assets/img/logo.png')",
         'homepage-bg1': "url('../../src/assets/img/bg1.jpg')",
         'homepage-bg2': "url('../../src/assets/img/bg2.webp')",
+        "QRcode": "url('../../src/assets/img/wechat.jpg')"
       }
     }
   },

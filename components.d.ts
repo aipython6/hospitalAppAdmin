@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     HomePageBanner: typeof import('./src/components/HomePage/Banner.vue')['default']
     HomePageButtonBox: typeof import('./src/components/HomePage/ButtonBox.vue')['default']
+    HomePageHoverBox: typeof import('./src/components/HomePage/HoverBox.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
