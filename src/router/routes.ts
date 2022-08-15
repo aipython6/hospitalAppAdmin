@@ -13,6 +13,20 @@ const routes = [
       }
     ]
   },
+
+  {
+    path: '/nhfyyy/public',
+    name: 'Public',
+    component: () => import("@/views/public/Home.vue"),
+    children: [
+      {
+        path: 'patient',
+        name: 'Patient',
+        component: () => import("@/views/public/Patient.vue")
+      }
+    ]
+  },
+
   {
     path: "/:any(.*)",
     name: "notFound",

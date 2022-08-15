@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import console from "console";
+
 const router = useRouter();
 const goHome = () => {
   router.push({ name: "Home" });
@@ -13,8 +15,12 @@ const data = [
 const boxConfig = reactive<Array>(data);
 
 const gotoAppointment = () => {
-  console.log('click')
-}
+  console.log("click");
+};
+
+const gotoPublic = () => {
+  router.push({ name: "Public" });
+};
 </script>
 
 <template>
@@ -30,6 +36,7 @@ const gotoAppointment = () => {
               :icon="item.icon"
               v-for="(item, index) of boxConfig"
               :key="item.id"
+              @gotoPublic="gotoPublic"
             />
           </div>
           <div>

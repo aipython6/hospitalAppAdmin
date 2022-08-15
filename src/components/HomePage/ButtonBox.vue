@@ -1,5 +1,11 @@
 <script lang="ts" setup>
 import { Icon } from "@iconify/vue";
+const emits = defineEmits(["gotoPublic"]);
+
+const gotoPublic = () => {
+  emits("gotoPublic");
+};
+
 const props = defineProps({
   text: {
     type: String,
@@ -15,6 +21,7 @@ const props = defineProps({
 <template>
   <div
     class="relative w-24 h-24 p-1 duration-500 bg-green-400 rounded-md shadow-2xl cursor-pointer sm:flex sm:h-40 sm:w-40 opacity-80 hover:scale-110 hover:bg-green-700"
+    @click="gotoPublic"
   >
     <span
       class="w-full h-full p-1 font-sans text-sm font-bold tracking-widest text-gray-100 transition duration-700 ease-in-out transform sm:text-xl hover:translate-x-7 hover:translate-y-14"
