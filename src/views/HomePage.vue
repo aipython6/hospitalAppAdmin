@@ -6,11 +6,15 @@ const goHome = () => {
 
 const data = [
   { id: 1, text: "就医导航", icon: "mdi:application-cog" },
-  { id: 2, text: "公众版", icon: "bi:people-fill" },
+  { id: 2, text: "公众浏览", icon: "bi:people-fill" },
   { id: 3, text: "OA系统", icon: "fluent:app-folder-16-filled" }
 ];
 
 const boxConfig = reactive<Array>(data);
+
+const gotoAppointment = () => {
+  console.log('click')
+}
 </script>
 
 <template>
@@ -29,7 +33,7 @@ const boxConfig = reactive<Array>(data);
             />
           </div>
           <div>
-            <HomePageHoverBox />
+            <HomePageHoverBox @gotoAppointment="gotoAppointment" />
           </div>
         </div>
       </div>
@@ -47,7 +51,7 @@ const boxConfig = reactive<Array>(data);
         />
       </div>
       <div>
-        <HomePageHoverBox />
+        <HomePageHoverBox @gotoAppointment="gotoAppointment" />
       </div>
     </div>
   </div>
