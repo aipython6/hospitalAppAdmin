@@ -6,6 +6,9 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     HomePageBanner: typeof import('./src/components/HomePage/Banner.vue')['default']
     HomePageButtonBox: typeof import('./src/components/HomePage/ButtonBox.vue')['default']
     HomePageHoverBox: typeof import('./src/components/HomePage/HoverBox.vue')['default']
