@@ -34,7 +34,7 @@ const gotoPublic = () => {
             <HomePageButtonBox
               :text="item.text"
               :icon="item.icon"
-              v-for="(item, index) of boxConfig"
+              v-for="(item) of boxConfig"
               :key="item.id"
               @gotoPublic="gotoPublic"
             />
@@ -53,7 +53,7 @@ const gotoPublic = () => {
         <HomePageButtonBox
           :text="item.text"
           :icon="item.icon"
-          v-for="(item, index) of boxConfig"
+          v-for="(item) of boxConfig"
           :key="item.id"
         />
       </div>

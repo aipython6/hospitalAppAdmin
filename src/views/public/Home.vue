@@ -91,5 +91,10 @@ const goHome = () => {
         </el-sub-menu>
       </el-menu>
     </div>
+    <div class="p-1">
+      <HomePageSwiper />
+    </div>
+    <el-divider />
+    <div class=""></div>
   </div>
 </template>
