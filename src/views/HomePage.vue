@@ -1,18 +1,22 @@
 <script lang="ts" setup>
 import console from "console";
-
+type textType = {
+  id: number;
+  text: string;
+  icon: string;
+};
 const router = useRouter();
 const goHome = () => {
   router.push({ name: "Home" });
 };
 
-const data = [
+const data: Array<textType> = [
   { id: 1, text: "就医导航", icon: "mdi:application-cog" },
   { id: 2, text: "公众浏览", icon: "bi:people-fill" },
   { id: 3, text: "OA系统", icon: "fluent:app-folder-16-filled" }
 ];
 
-const boxConfig = reactive<Array>(data);
+const boxConfig = reactive<Array<textType>>(data);
 
 const gotoAppointment = () => {
   console.log("click");
