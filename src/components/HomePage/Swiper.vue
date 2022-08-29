@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { Navigation } from 'swiper'
+const modules = [ Navigation ]
 type swiperType = {
   id: number;
   text: string;
@@ -32,21 +34,22 @@ const swiperItems: Array<swiperType> = [
 
 <template>
   <div>
-    <el-carousel
-      :interval="4000"
-      type="card"
-      height="400px"
-      trigger="click"
-      indicator-position="none"
-    >
-      <el-carousel-item v-for="item of swiperItems" :key="item.id">
-        <div class="relative">
-          <img :src="item.path" />
-          <span
-            class="absolute bottom-0 left-0 bg-gray-200 w-full opacity-70 flex items-center md:p-2 md:text-md text-sm text-gray-700"
-          >{{ item.text }}</span>
-        </div>
-      </el-carousel-item>
-    </el-carousel>
+    <swiper class="swiper" :modules="modules" :pagination="{ clickable: true, dynamicBullets: true }" loop :option="{autoPlay: true}">
+    <swiper-slide class="slide" v-for="item of swiperItems" :key="item.id">
+      <img :src="item.path" class="h-full w-full" />
+    </swiper-slide>
+  </swiper>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  @import '@/style/swiper/variables.scss';
+  @import '@/style/swiper/mixins.scss';
+  @import '@/style/swiper/style.scss';
+  .swiper {
+    @include swiper-wrapper()
+  }
+  .slide {
+    @include swiper-slide()
+  }
+</style>

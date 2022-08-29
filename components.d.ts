@@ -5,16 +5,20 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     HomePageBanner: typeof import('./src/components/HomePage/Banner.vue')['default']
     HomePageButtonBox: typeof import('./src/components/HomePage/ButtonBox.vue')['default']
+    HomePageFooter: typeof import('./src/components/HomePage/Footer.vue')['default']
     HomePageHoverBox: typeof import('./src/components/HomePage/HoverBox.vue')['default']
+    HomePageScroll: typeof import('./src/components/HomePage/Scroll.vue')['default']
     HomePageSwiper: typeof import('./src/components/HomePage/Swiper.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
