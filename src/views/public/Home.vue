@@ -88,6 +88,18 @@ const dept_data: Depts[] = [
   {id: 10, dept_name: '心血管内科', router: '/xxgnk'},
 ]
 
+const menuList = [
+  { id: 1, name: '医院概况', router: '' },
+  { id: 2, name: '医疗服务', router: '' },
+  { id: 3, name: '新闻公告', router: '' },
+  { id: 4, name: '科室导航', router: '' },
+  { id: 5, name: '科学研究', router: '' },
+  { id: 6, name: '医学教育', router: '' },
+  { id: 7, name: '科学研究', router: '' },
+  { id: 8, name: '历史文化', router: '' },
+  { id: 9, name: '加入我们', router: '' },
+  ]
+
 const depts = reactive<Array<Depts>>(dept_data)
 
 </script>
@@ -136,7 +148,17 @@ const depts = reactive<Array<Depts>>(dept_data)
         <div class="grid md:grid-cols-5 grid-cols-2 md:gap-4 gap-2">
           <div class="h-10 w-32 bg-gray-200 flex justify-center items-center rounded-md cursor-pointer hover:bg-green-700 md:font-bold md:text-md text-sm" v-for="item of dept_data" :key="item.id">{{ item.dept_name }}</div>
         </div>
-      </div> 
+      </div>
+      <!-- 导航的list -->
+      <div class="md:px-24 md:py-14 py-8 grid md:grid-cols-2 grid-cols-1">
+        <div class="grid gap-0 md:gap-2 md:grid-cols-3 grid-cols-2 md:text-xl text-sm text-gray-600">
+          <div v-for="item of menuList" :key="item.id" class="hover:text-green-700 cursor-pointer hover:font-bold">{{ item.name }}</div>
+        </div>
+        <div class="flex md:space-x-12 space-x-2 md:justify-end md:mt-0 mt-3">
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" class="md:h-24 md:w-24 h-16 w-16" alt="">
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" class="md:h-24 md:w-24 h-16 w-16" alt="">
+        </div>
+      </div>
     </div>
     <div class="mt-10">
       <HomePageFooter />
