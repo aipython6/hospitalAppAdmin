@@ -16,18 +16,21 @@ const defaultConfig: AxiosRequestConfig = {
 
 class CloudHttp {
   constructor() {
-
+    this.httpInterceptorsRequest();
+    this.httpInterceptorsResponse();
   }
   // 初始化配置对象
-  private static initConfig: CloudHttpRequestConfig = {}
+  private static initConfig: CloudHttpRequestConfig = {};
+
   // 保存当前Axios实例对象
-  private static axiosInstance: AxiosInstance = Axios.create(defaultConfig)
+  private static axiosInstance: AxiosInstance = Axios.create(defaultConfig);
 
   // 请求拦截
   private httpInterceptorsRequest(): void {
     CloudHttp.axiosInstance.interceptors.request.use(
       (config: CloudHttpRequestConfig) => {
         const $config = config;
+        // 优先判断post/get等方法是否传入回调，否则执行初始化设置等回调
         if (typeof config.beforeRequestCallback === "function") {
           config.beforeRequestCallback($config);
           return $config;
@@ -41,14 +44,16 @@ class CloudHttp {
       (error) => {
         return Promise.reject(error);
       }
-    )
+    );
   }
+
   // 响应拦截
   private httpInterceptorsResponse(): void {
     const instance = CloudHttp.axiosInstance;
     instance.interceptors.response.use(
       (response: CloudHttpResoponse) => {
         const $config = response.config;
+        // 优先判断post/get等方法是否传入回调，否则执行初始化设置等回调
         if (typeof $config.beforeResponseCallback === "function") {
           $config.beforeResponseCallback(response);
           return response.data;
@@ -68,7 +73,8 @@ class CloudHttp {
     );
   }
 
-  public request<T> (
+  // 通用请求工具函数
+  public request<T>(
     method: RequestMethods,
     url: string,
     param?: AxiosRequestConfig,
@@ -80,18 +86,23 @@ class CloudHttp {
       ...param,
       ...axiosConfig
     } as CloudHttpRequestConfig;
+
+    // 单独处理自定义请求/响应回调
     return new Promise((resolve, reject) => {
-      CloudHttp.axiosInstance.request(config).then((response: any) => {
-        resolve(response)
-      }).catch(error => {
-        reject(error)
-      })
-    })
+      CloudHttp.axiosInstance
+        .request(config)
+        .then((response: any) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
   }
 
   // 单独抽离的post工具函数
   public post<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
-    return this.request<P>("post", url, {params}, config);
+    return this.request<P>("post", url, params, config);
   }
 
   // 单独抽离的get工具函数
@@ -100,3 +111,4 @@ class CloudHttp {
   }
 }
 
+export const http = new CloudHttp();

@@ -6,13 +6,12 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElCarousel: typeof import('element-plus/es')['ElCarousel']
-    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElSubItem: typeof import('element-plus/es')['ElSubItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     HomePageBanner: typeof import('./src/components/HomePage/Banner.vue')['default']
     HomePageButtonBox: typeof import('./src/components/HomePage/ButtonBox.vue')['default']
